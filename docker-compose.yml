@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+   devcontainer:
+     container_name: developmentcontainer
+     build:
+       context: .
+     volumes:
+       - ./data/xdev:/xdev
+     restart: unless-stopped
+     command: tail -F anything
+     ports:
+           - "18000:80"
+           - "22222:22"
+		   - "5000:5000"
+     environment:
+       - TEST_VAR=Dies ist ein Test
